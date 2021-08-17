@@ -10,8 +10,13 @@
 
 
 html, body{
-   background-color: #333;
+   background: url('../images/bg-template-svg.svg');
+   background-position: center top;
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
+
 
 .content {
    max-width: 700px;
