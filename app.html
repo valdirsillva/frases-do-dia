@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>App Frases</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<div class="content">
+		<div class="rows" id="el">
+         <p id="frase"></p> 
+			<div id="image">
+
+			</div>
+		</div>
+	</div>
+
+
+   <script>
+   	const imagens = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+ 	   const pasta = 'images/';
+ 	   const extensao =  '.jpeg';
+
+      const minhasFrases = 
+      [
+        [' " O Resultado do sucesso é a soma de pequenos esforços somados dia após dia. " '],
+        [' " Manhãs são para café e contemplação " '],
+        [' " O Resultado do sucesso é a soma de pequenos esforços somados dia após dia. " '],
+        [' " Ostra feliz não produz pérola " '],
+        [' " Não importa o que você decidiu. O que importa é que isso te faça feliz. " '],
+        [' " Seja seu próprio incentivo. " '],
+        [' " Tudo que sua mente for capaz de  conceber ela é capaz de realizar ! " '],
+        [' " Se a caminhada está difícil, é porque você está no caminho certo. " '],
+        [' " Toda conquista começa com a decisão de tentar. " '],
+        [' " Insista, persista e nunca desista. " '],
+        [' " Se não puder fazer tudo, faça tudo que puder. " '],
+        [' " O importante não é vencer todos os dias, mas lutar sempre. " ']
+      ];
+
+
+   	
+      function sliderShow(vet) {
+         var  slider  = 0;
+         const imagem = document.createElement('img');
+         const frase  = document.createElement('h2');
+         setInterval(function() {
+            for (let i = 0; i < vet.length; i++ ) {
+               var number = Math.floor(Math.random()  * 12);
+               imagem.src = pasta + vet[number] + extensao;
+               slider++;
+
+            }
+            imagem.classList.add('addClass');
+            document.getElementById('image').appendChild(imagem);
+            document.getElementById('frase').innerHTML = message(number, minhasFrases);
+            
+         },10000);
+      }
+
+      function message(element, dialog) {
+         var fraseDoDia  = ''; 
+         for (let i = 0; i < dialog.length; i++) {
+            if(element === i) {
+               fraseDoDia = dialog[i];
+            }
+         }
+         return fraseDoDia ? fraseDoDia : '';
+      }
+
+      sliderShow(imagens);
+ 	
+   </script>
+        
+</body>
+</html>
